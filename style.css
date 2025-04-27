@@ -707,7 +707,7 @@ section {
 }
 
 .avatar-image {
-    max-width: 234px;
+    max-width: 194px;
     height: auto;
     transition: transform var(--transition-fast);
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
