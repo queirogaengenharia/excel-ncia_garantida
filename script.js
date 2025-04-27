@@ -21,12 +21,24 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeEffect: {
             crossFade: true
         },
-        touchRatio: 1,
+        touchRatio: 2, // Aumentado para melhor resposta em dispositivos móveis
+        touchAngle: 45, // Aumenta o ângulo para reconhecer deslizes diagonais
+        longSwipes: true,
+        longSwipesRatio: 0.2, // Reduzido para reconhecer deslizes mais curtos
+        threshold: 10, // Reduzido para reconhecer toques mais leves
+        resistance: false, // Remove a resistência para deslizes mais fluidos
         observer: true,
-        observeParents: true
+        observeParents: true,
+        watchSlidesProgress: true, // Melhora o rastreamento dos slides
+        grabCursor: true, // Cursor de "mão" quando hover
     });
     
+    // Reinicia o autoplay após interações de toque para garantir que o slider continua funcionando
     document.addEventListener('touchstart', function() {
+        swiper.autoplay.start();
+    }, {passive: true});
+    
+    document.addEventListener('touchend', function() {
         swiper.autoplay.start();
     }, {passive: true});
 
